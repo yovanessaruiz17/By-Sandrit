@@ -50,9 +50,11 @@ export function BusinessProvider({ children }) {
     categories,
     loading,
     isDemoMode,
+    isDemo: isDemoMode,
     isSupabaseConfigured,
     updateBusinessSettings,
-    refreshBusinessData
+    refreshBusinessData,
+    refreshSettings: refreshBusinessData
   };
 
   return (

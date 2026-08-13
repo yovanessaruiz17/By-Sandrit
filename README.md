@@ -14,7 +14,7 @@ Plataforma web integral de reservas, catálogo de tratamientos, gestión adminis
 ## 👨‍💻 Autor y Desarrollo Web
 - **Desarrollador:** **YorDev** (Yorleidys Ruiz Ruiz)
 - **Portafolio / Sitio Web:** [https://yordevctg17.netlify.app/](https://yordevctg17.netlify.app/)
-- **Cliente:** BY SANDRIT 
+- **Cliente:** BY SANDRIT — Sandrit Ríos Molinares
 
 ---
 

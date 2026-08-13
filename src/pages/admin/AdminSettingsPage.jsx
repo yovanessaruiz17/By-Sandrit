@@ -95,16 +95,26 @@ export function AdminSettingsPage() {
     setErrorMsg('');
 
     try {
-      const res = await settingsService.updateSettings(formData);
+      const [res, hrsRes] = await Promise.all([
+        settingsService.updateSettings(formData),
+        businessHours && businessHours.length > 0
+          ? settingsService.updateBusinessHours(businessHours)
+          : Promise.resolve({ data: null, error: null })
+      ]);
+
       if (res.error) {
         setErrorMsg('Error al guardar la configuración: ' + res.error.message);
+      } else if (hrsRes.error) {
+        setErrorMsg('Error al guardar los horarios: ' + hrsRes.error.message);
       } else {
-        await refreshSettings();
-        setSuccessMsg('Configuración guardada correctamente.');
+        if (refreshSettings) {
+          await refreshSettings();
+        }
+        setSuccessMsg('Configuración y horarios guardados correctamente.');
         setTimeout(() => setSuccessMsg(''), 4000);
       }
     } catch (err) {
-      setErrorMsg('Ocurrió un error inesperado.');
+      setErrorMsg('Ocurrió un error inesperado al guardar.');
     } finally {
       setSaving(false);
     }

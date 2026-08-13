@@ -1,5 +1,6 @@
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { demoBusinessSettings } from './demoData';
+import { appointmentsService } from './appointments.service';
 
 let localSettings = { ...demoBusinessSettings };
 
@@ -61,5 +62,13 @@ export const settingsService = {
     } catch (err) {
       return { data: null, error: err };
     }
+  },
+
+  async getBusinessHours() {
+    return appointmentsService.getBusinessHours();
+  },
+
+  async updateBusinessHours(hoursArray) {
+    return appointmentsService.updateBusinessHours(hoursArray);
   }
 };
