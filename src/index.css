@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #2D2522;
+    background-color: #FAF7F5;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5EFEB;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2CFCA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B8B1;
+}
+
+/* Gold shimmer accent border */
+.border-gold-subtle {
+  border-color: rgba(212, 175, 115, 0.4);
+}
+
+.text-gold-accent {
+  color: #C59B4E;
+}
+
+.bg-rose-brand-50 {
+  background-color: #FAF2F3;
+}
+.bg-rose-brand-100 {
+  background-color: #F6E2E4;
+}
+.bg-rose-brand-500 {
+  background-color: #C97A8B;
+}
+.bg-rose-brand-600 {
+  background-color: #B25F72;
+}
+.bg-rose-brand-700 {
+  background-color: #8C3F52;
+}
+
+.text-rose-brand-700 {
+  color: #8C3F52;
+}
+.text-rose-brand-800 {
+  color: #6E2B3C;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

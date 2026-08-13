@@ -1,0 +1,58 @@
+# BY SANDRIT — Servicios Estéticos & Cosméticos
+
+> Centro profesional de estética integral, cosmetología y bienestar fundado y dirigido por Sandrit Ríos Molinares.
+
+## Descripción General
+BY SANDRIT es un centro especializado en servicios estéticos y cosméticos enfocado en el cuidado personalizado de la piel, la relajación corporal, el embellecimiento facial y experiencias de spa. Destaca por sus estrictos protocolos de bioseguridad, materiales esterilizados y descartables, trato personalizado y uso de productos cosméticos de alta gama.
+
+## Fundadora & Especialista
+- **Nombre:** Sandrit Ríos Molinares
+- **Cargo:** Especialista en Servicios Estéticos y Cosméticos
+- **Enfoque:** Cosmetología estética, higiene facial profunda, masajes terapéuticos y realce natural de la belleza.
+
+## Catálogo Principal de Servicios
+- **Higiene Facial:**
+  - Higiene Facial Básica: Limpieza, exfoliación suave, mascarilla hidratante y fotoprotección (45 min).
+  - Higiene Facial Profunda: Vapor ozono, extracción minuciosa de comedones, alta frecuencia bactericida, mascarilla hidroplástica y sueros nutritivos (75-90 min).
+  - Tratamiento Antiacné & Regulador: Control de sebo, descongestión dérmica y regeneración celular.
+- **Masajes & Bienestar Corporal:**
+  - Masaje Relajante Corporal: Terapia manual con aceites esenciales y aromaterapia (60 min).
+  - Drenaje Linfático Manual: Estimulación del sistema linfático, reducción de retención de líquidos e inflamación.
+- **Depilación con Cera:**
+  - Cera elástica hipoalergénica para cejas, bozo, axilas, piernas y zonas delicadas.
+- **Cejas & Pestañas:**
+  - Diseño, perfilado y pigmentación semipermanente de cejas con henna/tinte profesional.
+  - Lifting de pestañas naturales con queratina y nutrición intensiva (60 min).
+- **Cabello & Peinados:**
+  - Trenzas artísticas, peinados sociales para fiestas, planchado y ondas glamorosas.
+- **Maquillaje:**
+  - Maquillaje social y para eventos con técnicas de larga duración y acabado editorial.
+- **Manicure & Pedicure:**
+  - Cuidado de uñas, limpieza cuticular y esmaltado semipermanente.
+- **Spa para Niñas:**
+  - Experiencia consentidora, lúdica y segura con mascarillas naturales de frutas, mini manicure y peinados especiales.
+
+## Información de Contacto y Citas
+- **WhatsApp Oficial:** [+57 312 765 4780](https://wa.me/573127654780)
+- **Instagram:** [@by_sandrit](https://instagram.com/by_sandrit)
+- **Horario de Atención:** Lunes a Sábado de 8:00 AM a 6:00 PM (con cita previa).
+- **Agendamiento Online:** [https://bysandrit.com/agendar](https://bysandrit.com/agendar)
+
+## Políticas Clave
+- **Tolerancia y Puntualidad:** Tolerancia máxima de 10-15 minutos.
+- **Cancelaciones:** Notificar con al menos 24 horas de anticipación.
+- **Bioseguridad:** Uso exclusivo de instrumental desinfectado/esterilizado y material desechable de primer uso.
+- **Consentimiento:** Ficha técnica y anamnesis previa a tratamientos faciales y corporales para descartar contraindicaciones.
+
+## Enlaces Canónicos
+- Inicio: https://bysandrit.com/
+- Servicios: https://bysandrit.com/servicios
+- Reservas: https://bysandrit.com/agendar
+- Nosotros: https://bysandrit.com/nosotros
+- Galería: https://bysandrit.com/galeria
+- Políticas: https://bysandrit.com/politicas
+
+## Créditos y Desarrollo Web
+- **Desarrollo y Diseño Web:** YorDev
+- **Sitio Web del Desarrollador:** [https://yordevctg17.netlify.app/](https://yordevctg17.netlify.app/)
+- **Derechos Reservados:** © 2026 BY SANDRIT. Todos los derechos reservados.

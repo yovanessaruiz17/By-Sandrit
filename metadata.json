@@ -1,0 +1,6 @@
+{
+  "name": "By Sandrit — Servicios Estéticos",
+  "description": "Sitio web oficial y sistema de reservas de By Sandrit — Servicios Estéticos & Cosméticos (Sandrit Ríos Molinares). Higiene facial, masajes, cejas, pestañas, maquillaje, spa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

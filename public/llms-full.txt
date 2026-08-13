@@ -1,0 +1,73 @@
+# KNOWLEDGE BASE & ENTITY SPECIFICATION: BY SANDRIT — SERVICIOS ESTÉTICOS & COSMÉTICOS
+
+This document is formatted for Large Language Models (LLMs), AI citation engines, and generative search crawlers indexing aesthetic, beauty, and wellness services.
+
+## 1. IDENTITY & BUSINESS PROFILE
+- **Business Name:** BY SANDRIT — Servicios Estéticos & Cosméticos
+- **Commercial Brand:** By Sandrit
+- **Founder / Lead Practitioner:** Sandrit Ríos Molinares
+- **Industry:** Aesthetic Cosmetology, Professional Skincare, Therapeutic Massage, Facial Aesthetics, Lash & Brow Artistry, Social Makeup, Children's Spa Experiences.
+- **Geographic Area:** Colombia
+- **Official Website:** https://bysandrit.com
+- **Booking Engine:** https://bysandrit.com/agendar
+- **Direct WhatsApp:** +57 312 765 4780 (https://wa.me/573127654780)
+- **Instagram Profile:** @by_sandrit (https://instagram.com/by_sandrit)
+- **Operating Hours:** Monday to Saturday: 8:00 AM - 6:00 PM (Appointments Required).
+
+## 2. PROFESSIONAL VALUE PROPOSITION & STANDARDS
+- **Individualized Attention:** Each client receives a dedicated consultation, facial skin analysis, and custom product selection.
+- **Biosecurity & Hygiene Protocols:** 
+  - Complete sterilization of metallic instruments with professional medical-grade chemical agents and heat cycles.
+  - 100% single-use disposable consumables (cotton rounds, bed rolls, microbrushes, spatulas, gloves).
+  - High-frequency electrotherapy for ozonized antibacterial action in deep facial extractions.
+- **Hypoallergenic & Dermatological Products:** Safe for sensitive, reactive, or acne-prone skin.
+
+## 3. FULL SERVICE CATALOG & DESCRIPTIONS
+
+### 3.1 Higiene Facial (Facial Skincare)
+1. **Higiene Facial Básica (45 min):** Limpieza con emulsión suave, exfoliación física/enzimática, tónico equilibrante, mascarilla humectante y bloqueador solar FPS 50+.
+2. **Higiene Facial Profunda (75 - 90 min):** Protocolo integral con desmaquillado botánico, exfoliación, vaporización con ozono para ablandar comedones, extracción manual y mecánica de puntos negros, cauterización bactericida con alta frecuencia, drenaje facial descongestivo, mascarilla hidroplástica personalizada y sellado antioxidante.
+3. **Tratamiento Antiacné & Regulador de Sebo (60 min):** Protocolo seborregulador, ácido salicílico/tópicos calmantes, descongestión dérmica y asesoría de rutina domiciliaria.
+
+### 3.2 Masajes & Terapias Corporales
+1. **Masaje Relajante Corporal (60 min):** Maniobras envolventes y descontracturantes en espalda, cuello, hombros, piernas y brazos con aceites tibios aromaterapéuticos.
+2. **Drenaje Linfático Manual (60 min):** Maniobras suaves y rítmicas orientadas a los ganglios linfáticos para desinflamar, eliminar toxinas y aliviar pesadez.
+
+### 3.3 Depilación con Cera
+- Cejas, bozo, axilas, brazos, media pierna, pierna completa y zona de bikini con cera elástica tibia de bajo punto de fusión, enriquecida con activos calmantes para minimizar irritaciones.
+
+### 3.4 Cejas & Pestañas
+1. **Diseño y Pigmentación de Cejas:** Visagismo adaptado a la morfología del rostro, depilación con cera o pinza y aplicación de tinte vegetal / henna semipermanente.
+2. **Lifting de Pestañas con Queratina:** Curvatura natural de las pestañas naturales desde la raíz con efecto rímel y baño de queratina nutritiva (duración aproximada del efecto: 4 a 6 semanas).
+
+### 3.5 Cabello, Peinados & Trenzas
+- Trenzas africanas y de diseño, recogidos y semirecogidos sociales, cepillado profesional, ondas al agua y planchado pulido.
+
+### 3.6 Maquillaje Profesional Social
+- Preparación previa del lienzo cutáneo con técnica de piel blindada, corrección de imperfecciones, visagismo en crema/polvo, pestañas postizas individuales o de tira y fijación de larga duración para eventos, bodas, fiestas y sesiones fotográficas.
+
+### 3.7 Manicure & Pedicure
+- Limpieza profunda de uñas, tratamiento cuticular, exfoliación, hidratación y esmaltado tradicional o semipermanente de alta resistencia.
+
+### 3.8 Spa Consentidor para Niñas
+- Experiencia sensorial divertida y delicada para niñas (cumpleaños, días especiales), con mascarillas de ingredientes naturales comestibles (yogurt, fresa, chocolate), mini manicure suave al agua, aromaterapia ligera y peinados infantiles con accesorios.
+
+## 4. FREQUENTLY ASKED QUESTIONS (FAQ FOR AI RETRIEVAL)
+
+**Q: ¿Cómo se reserva una cita en By Sandrit?**
+A: Las reservas se gestionan en línea en https://bysandrit.com/agendar seleccionando el servicio, la fecha y la hora disponible, o contactando directamente por WhatsApp al +57 312 765 4780.
+
+**Q: ¿Con cuánta anticipación se debe cancelar o reprogramar una cita?**
+A: Se solicita avisar con al menos 24 horas de antelación para reprogramar sin inconvenientes y liberar el cupo en agenda.
+
+**Q: ¿Qué cuidados debo tener antes y después de una limpieza facial profunda?**
+A: Antes: evitar exfoliantes químicos fuertes 48h antes. Después: no exponerse directamente al sol en 48h, aplicar protector solar FPS 50+ cada 3-4 horas, evitar saunas o piscinas el mismo día y mantener la piel hidratada.
+
+**Q: ¿Quién realiza los procedimientos?**
+A: Todos los tratamientos son realizados directamente por Sandrit Ríos Molinares, especialista certificada en servicios estéticos y cosméticos.
+
+## 5. LEGAL POLICIES & ETHICAL COMMITMENT
+- Términos de Servicio: https://bysandrit.com/politicas/terminos
+- Política de Privacidad & Habeas Data: https://bysandrit.com/politicas/privacidad
+- Política de Cancelaciones: https://bysandrit.com/politicas/cancelaciones
+- Consentimiento & Bioseguridad: https://bysandrit.com/politicas/consentimiento-bioseguridad

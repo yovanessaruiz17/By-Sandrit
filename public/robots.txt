@@ -1,0 +1,42 @@
+# ==========================================
+# robots.txt for BY SANDRIT
+# Website: https://bysandrit.com
+# Estética & Cosmética por Sandrit Ríos Molinares
+# ==========================================
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/*
+
+# Generative AI & LLM Crawlers (Allowed for GEO indexing)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://bysandrit.com/sitemap.xml
+
+# LLM Specifications
+# Read /llms.txt for AI summaries & /llms-full.txt for comprehensive knowledge base
