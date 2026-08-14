@@ -1,0 +1,60 @@
+{
+  "id": "by-sandrit-app",
+  "name": "BY SANDRIT — Servicios Estéticos & Cosméticos",
+  "short_name": "BY SANDRIT",
+  "description": "Agenda citas de estética facial, corporal, masajes y administra tu negocio con BY SANDRIT.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FAF7F5",
+  "theme_color": "#8C3F52",
+  "lang": "es-CO",
+  "dir": "ltr",
+  "categories": ["lifestyle", "beauty", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "192x192 256x256 384x384 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "192x192 256x256 384x384 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Agendar Cita",
+      "short_name": "Agendar",
+      "description": "Reserva tu sesión de belleza y cuidado facial o corporal",
+      "url": "/agendar",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Panel Administrativo",
+      "short_name": "Admin",
+      "description": "Gestiona citas, servicios y configuración del negocio",
+      "url": "/admin",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Tratamientos & Servicios",
+      "short_name": "Servicios",
+      "description": "Explora nuestro catálogo de servicios estéticos",
+      "url": "/servicios",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Dejar Opinión",
+      "short_name": "Calificar",
+      "description": "Comparte tu experiencia y califica nuestro servicio",
+      "url": "/dejar-opinion",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

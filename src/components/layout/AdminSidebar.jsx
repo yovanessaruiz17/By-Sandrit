@@ -9,13 +9,17 @@ import {
   Settings as SettingsIcon,
   ExternalLink,
   LogOut,
+  Download,
+  Smartphone,
   X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { usePwa } from '../../context/PwaContext';
 
 export function AdminSidebar({ isOpen, onClose }) {
   const location = useLocation();
   const { logout, isDemoUser } = useAuth();
+  const { setShowInstallModal, isInstalled, isInstallable, triggerInstall } = usePwa();
 
   const navItems = [
     { label: 'Dashboard', path: '/admin', icon: LayoutDashboard, exact: true },
@@ -104,6 +108,21 @@ export function AdminSidebar({ isOpen, onClose }) {
 
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-[#3D312E] space-y-2">
+          {!isInstalled && (
+            <button
+              onClick={() => {
+                if (isInstallable) triggerInstall();
+                else setShowInstallModal(true);
+              }}
+              className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#8C3F52]/80 hover:bg-[#8C3F52] text-white transition-all shadow-xs cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <Smartphone className="w-3.5 h-3.5 text-[#C59B4E]" /> Instalar App Panel
+              </span>
+              <Download className="w-3.5 h-3.5" />
+            </button>
+          )}
+
           <Link
             to="/"
             target="_blank"

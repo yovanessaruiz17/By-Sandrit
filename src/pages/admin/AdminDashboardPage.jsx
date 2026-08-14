@@ -12,7 +12,9 @@ import {
   MessageSquareQuote,
   Settings,
   RefreshCw,
-  Plus
+  Plus,
+  Smartphone,
+  Download
 } from 'lucide-react';
 import { AdminHeader } from '../../components/layout/AdminHeader';
 import { Button } from '../../components/common/Button';
@@ -20,6 +22,7 @@ import { StatusBadge } from '../../components/common/StatusBadge';
 import { LoadingSpinner } from '../../components/common/LoadingSpinner';
 import { appointmentsService } from '../../services/appointments.service';
 import { servicesService } from '../../services/services.service';
+import { usePwa } from '../../context/PwaContext';
 import { formatPrice, formatTime12Hour, formatShortDate } from '../../utils/formatters';
 import { updatePageSEO } from '../../utils/seo';
 

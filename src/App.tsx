@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { BusinessProvider } from './context/BusinessContext';
+import { PwaProvider } from './context/PwaContext';
+import { PwaContainer } from './components/pwa/PwaContainer';
 import { PublicLayout } from './components/layout/PublicLayout';
 import { AdminLayout } from './components/layout/AdminLayout';
 import { ProtectedRoute } from './components/layout/ProtectedRoute';
@@ -48,55 +50,58 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <BusinessProvider>
-          <ScrollToTop />
-          <Routes>
-            {/* PUBLIC ROUTES */}
-            <Route path="/" element={<PublicLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="servicios" element={<ServicesPage />} />
-              <Route path="servicios/:slug" element={<ServiceDetailPage />} />
-              <Route path="nosotros" element={<AboutPage />} />
-              <Route path="galeria" element={<GalleryPage />} />
-              <Route path="contacto" element={<ContactPage />} />
-              <Route path="agendar" element={<BookingPage />} />
-              <Route path="dejar-opinion" element={<ReviewPage />} />
-              <Route path="calificar" element={<ReviewPage />} />
-              <Route path="opinar" element={<ReviewPage />} />
-              <Route path="reviews" element={<ReviewPage />} />
-              
-              {/* POLICIES & LEGAL */}
-              <Route path="politicas" element={<PoliciesHubPage />} />
-              <Route path="politicas/terminos" element={<TermsPage />} />
-              <Route path="politicas/privacidad" element={<PrivacyPage />} />
-              <Route path="politicas/cancelaciones" element={<CancellationPage />} />
-              <Route path="politicas/consentimiento-bioseguridad" element={<BiosecurityConsentPage />} />
-              {/* Friendly short aliases */}
-              <Route path="terminos" element={<TermsPage />} />
-              <Route path="privacidad" element={<PrivacyPage />} />
+          <PwaProvider>
+            <ScrollToTop />
+            <PwaContainer />
+            <Routes>
+              {/* PUBLIC ROUTES */}
+              <Route path="/" element={<PublicLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="servicios" element={<ServicesPage />} />
+                <Route path="servicios/:slug" element={<ServiceDetailPage />} />
+                <Route path="nosotros" element={<AboutPage />} />
+                <Route path="galeria" element={<GalleryPage />} />
+                <Route path="contacto" element={<ContactPage />} />
+                <Route path="agendar" element={<BookingPage />} />
+                <Route path="dejar-opinion" element={<ReviewPage />} />
+                <Route path="calificar" element={<ReviewPage />} />
+                <Route path="opinar" element={<ReviewPage />} />
+                <Route path="reviews" element={<ReviewPage />} />
+                
+                {/* POLICIES & LEGAL */}
+                <Route path="politicas" element={<PoliciesHubPage />} />
+                <Route path="politicas/terminos" element={<TermsPage />} />
+                <Route path="politicas/privacidad" element={<PrivacyPage />} />
+                <Route path="politicas/cancelaciones" element={<CancellationPage />} />
+                <Route path="politicas/consentimiento-bioseguridad" element={<BiosecurityConsentPage />} />
+                {/* Friendly short aliases */}
+                <Route path="terminos" element={<TermsPage />} />
+                <Route path="privacidad" element={<PrivacyPage />} />
 
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
 
-            {/* ADMIN LOGIN */}
-            <Route path="/admin/login" element={<AdminLoginPage />} />
+              {/* ADMIN LOGIN */}
+              <Route path="/admin/login" element={<AdminLoginPage />} />
 
-            {/* PROTECTED ADMIN ROUTES */}
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute>
-                  <AdminLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<AdminDashboardPage />} />
-              <Route path="servicios" element={<AdminServicesPage />} />
-              <Route path="citas" element={<AdminAppointmentsPage />} />
-              <Route path="galeria" element={<AdminGalleryPage />} />
-              <Route path="testimonios" element={<AdminTestimonialsPage />} />
-              <Route path="configuracion" element={<AdminSettingsPage />} />
-            </Route>
-          </Routes>
+              {/* PROTECTED ADMIN ROUTES */}
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<AdminDashboardPage />} />
+                <Route path="servicios" element={<AdminServicesPage />} />
+                <Route path="citas" element={<AdminAppointmentsPage />} />
+                <Route path="galeria" element={<AdminGalleryPage />} />
+                <Route path="testimonios" element={<AdminTestimonialsPage />} />
+                <Route path="configuracion" element={<AdminSettingsPage />} />
+              </Route>
+            </Routes>
+          </PwaProvider>
         </BusinessProvider>
       </AuthProvider>
     </BrowserRouter>

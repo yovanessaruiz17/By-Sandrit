@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sparkles, Calendar, Heart, ShieldCheck } from 'lucide-react';
+import { Menu, X, Sparkles, Calendar, Heart, ShieldCheck, Download, Smartphone } from 'lucide-react';
 import { Button } from '../common/Button';
 import { useBusiness } from '../../context/BusinessContext';
+import { usePwa } from '../../context/PwaContext';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { settings } = useBusiness();
+  const { isInstalled, setShowInstallModal, triggerInstall, isInstallable } = usePwa();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,6 +87,20 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
+          {!isInstalled && (
+            <button
+              onClick={() => {
+                if (isInstallable) triggerInstall();
+                else setShowInstallModal(true);
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#8C3F52] hover:bg-[#FAF2F3] border border-[#F2D7D9] rounded-xl transition-all shadow-2xs hover:shadow-xs cursor-pointer"
+              title="Instalar como Aplicación (PWA)"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Instalar App</span>
+            </button>
+          )}
+
           <Link to="/agendar">
             <Button
               id="btn-nav-agendar"
@@ -132,12 +148,26 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="pt-2 border-t border-[#EFE5E2]">
+          <div className="pt-2 border-t border-[#EFE5E2] space-y-2">
             <Link to="/agendar" className="block w-full">
               <Button variant="primary" size="md" className="w-full" icon={Calendar}>
                 Agendar cita ahora
               </Button>
             </Link>
+
+            {!isInstalled && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (isInstallable) triggerInstall();
+                  else setShowInstallModal(true);
+                }}
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-[#8C3F52] bg-[#FAF2F3] border border-[#F2D7D9] flex items-center justify-center gap-2 transition-all cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Instalar Aplicación en Celular</span>
+              </button>
+            )}
           </div>
         </div>
       )}

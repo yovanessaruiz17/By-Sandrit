@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, MessageCircle, Instagram, Phone, MapPin, Clock, Lock } from 'lucide-react';
+import { Sparkles, MessageCircle, Instagram, Phone, MapPin, Clock, Lock, Download, Smartphone } from 'lucide-react';
 import { useBusiness } from '../../context/BusinessContext';
+import { usePwa } from '../../context/PwaContext';
 import { generateWhatsAppUrl, generateGeneralInquiryMessage } from '../../utils/whatsapp';
 
 export function Footer() {
   const { settings } = useBusiness();
+  const { setShowInstallModal, isInstalled } = usePwa();
   const phone = settings?.whatsapp || '3127654780';
   const instagram = settings?.instagram || 'by_sandrit';
   const waUrl = generateWhatsAppUrl({ phone, message: generateGeneralInquiryMessage() });
@@ -89,6 +91,17 @@ export function Footer() {
                   ✨ Agendar Cita en Línea
                 </Link>
               </li>
+              {!isInstalled && (
+                <li>
+                  <button
+                    onClick={() => setShowInstallModal(true)}
+                    className="text-[#C59B4E] hover:text-[#E2BD75] font-medium transition-colors flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <Smartphone className="w-4 h-4" />
+                    <span>Instalar App en tu Celular</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
