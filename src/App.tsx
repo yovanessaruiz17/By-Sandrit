@@ -14,6 +14,7 @@ import { AboutPage } from './pages/public/AboutPage';
 import { GalleryPage } from './pages/public/GalleryPage';
 import { ContactPage } from './pages/public/ContactPage';
 import { BookingPage } from './pages/public/BookingPage';
+import { ReviewPage } from './pages/public/ReviewPage';
 import { NotFoundPage } from './pages/public/NotFoundPage';
 
 // Policy Pages
@@ -58,6 +59,10 @@ export default function App() {
               <Route path="galeria" element={<GalleryPage />} />
               <Route path="contacto" element={<ContactPage />} />
               <Route path="agendar" element={<BookingPage />} />
+              <Route path="dejar-opinion" element={<ReviewPage />} />
+              <Route path="calificar" element={<ReviewPage />} />
+              <Route path="opinar" element={<ReviewPage />} />
+              <Route path="reviews" element={<ReviewPage />} />
               
               {/* POLICIES & LEGAL */}
               <Route path="politicas" element={<PoliciesHubPage />} />

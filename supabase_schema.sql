@@ -140,6 +140,9 @@ CREATE POLICY "Acceso público de lectura para configuración" ON public.busines
 CREATE POLICY "Cualquier cliente puede agendar citas" ON public.appointments FOR INSERT WITH CHECK (true);
 CREATE POLICY "Lectura pública de citas para control de cupos" ON public.appointments FOR SELECT USING (true);
 
+-- Creación de Testimonios / Reseñas Pública (Permite a clientes calificar mediante enlace o QR)
+CREATE POLICY "Cualquier cliente puede enviar testimonios" ON public.testimonials FOR INSERT WITH CHECK (true);
+
 -- Permisos Totales para Usuarios Autenticados (Administrador)
 CREATE POLICY "Admin full access service_categories" ON public.service_categories FOR ALL TO authenticated USING (true) WITH CHECK (true);
 CREATE POLICY "Admin full access services" ON public.services FOR ALL TO authenticated USING (true) WITH CHECK (true);

@@ -400,10 +400,21 @@ export function HomePage() {
             description="La satisfacción y confianza de quienes nos eligen es nuestro mejor respaldo."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {testimonials.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/dejar-opinion"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#FAF2F3] text-[#8C3F52] border border-[#F2D7D9] text-xs sm:text-sm font-medium transition-all shadow-2xs hover:shadow-xs"
+            >
+              <Star className="w-4 h-4 text-[#C59B4E] fill-[#C59B4E]" />
+              <span>¿Fuiste atendida por Sandrit? Déjanos tu opinión aquí</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </section>
       )}

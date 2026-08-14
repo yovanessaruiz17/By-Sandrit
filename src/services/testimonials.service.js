@@ -21,7 +21,7 @@ export const testimonialsService = {
 
       const { data, error } = await query;
       if (error) throw error;
-      return { data: data && data.length > 0 ? data : localTestimonials, error: null, isDemo: !data || data.length === 0 };
+      return { data: data && data.length > 0 ? data : (includeInactive ? localTestimonials : localTestimonials.filter(t => t.is_active)), error: null, isDemo: false };
     } catch (err) {
       console.warn('Supabase getAllTestimonials fallback:', err.message);
       const filtered = includeInactive ? localTestimonials : localTestimonials.filter(t => t.is_active);
@@ -30,17 +30,26 @@ export const testimonialsService = {
   },
 
   async createTestimonial(testimonialData) {
+    const customerName = (testimonialData.customer_name || testimonialData.client_name || '').trim();
+    const serviceName = (testimonialData.service_name || '').trim() || null;
+    const comment = (testimonialData.comment || '').trim();
+    const rating = Math.min(5, Math.max(1, Number(testimonialData.rating) || 5));
+
+    const generatedId = testimonialData.id || `test-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
+
     const payload = {
-      ...testimonialData,
-      rating: Number(testimonialData.rating) || 5,
-      is_active: testimonialData.is_active ?? true,
+      id: generatedId,
+      customer_name: customerName,
+      service_name: serviceName,
+      comment: comment,
+      rating: rating,
+      is_active: testimonialData.is_active !== undefined ? Boolean(testimonialData.is_active) : true,
       created_at: new Date().toISOString()
     };
 
     if (!isSupabaseConfigured || !supabase) {
-      const newItem = { id: `test-${Date.now()}`, ...payload };
-      localTestimonials.unshift(newItem);
-      return { data: newItem, error: null, isDemo: true };
+      localTestimonials.unshift(payload);
+      return { data: payload, error: null, isDemo: true };
     }
 
     try {
@@ -52,15 +61,22 @@ export const testimonialsService = {
       if (error) throw error;
       return { data, error: null, isDemo: false };
     } catch (err) {
+      console.error('Supabase createTestimonial error:', err);
       return { data: null, error: err };
     }
   },
 
   async updateTestimonial(id, testimonialData) {
+    const updatePayload = { ...testimonialData };
+    if (updatePayload.client_name && !updatePayload.customer_name) {
+      updatePayload.customer_name = updatePayload.client_name;
+      delete updatePayload.client_name;
+    }
+
     if (!isSupabaseConfigured || !supabase) {
       const index = localTestimonials.findIndex(t => t.id === id);
       if (index !== -1) {
-        localTestimonials[index] = { ...localTestimonials[index], ...testimonialData };
+        localTestimonials[index] = { ...localTestimonials[index], ...updatePayload };
         return { data: localTestimonials[index], error: null, isDemo: true };
       }
       return { data: null, error: new Error('Testimonio no encontrado'), isDemo: true };
@@ -68,7 +84,7 @@ export const testimonialsService = {
     try {
       const { data, error } = await supabase
         .from('testimonials')
-        .update(testimonialData)
+        .update(updatePayload)
         .eq('id', id)
         .select()
         .single();
@@ -77,6 +93,10 @@ export const testimonialsService = {
     } catch (err) {
       return { data: null, error: err };
     }
+  },
+
+  async toggleActive(id, currentStatus) {
+    return this.updateTestimonial(id, { is_active: !currentStatus });
   },
 
   async deleteTestimonial(id) {
