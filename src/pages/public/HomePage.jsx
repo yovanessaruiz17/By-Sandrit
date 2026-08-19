@@ -25,6 +25,8 @@ import { LoadingSpinner } from '../../components/common/LoadingSpinner';
 import { FaqSection, DEFAULT_AESTHETIC_FAQS } from '../../components/common/FaqSection';
 import { servicesService } from '../../services/services.service';
 import { testimonialsService } from '../../services/testimonials.service';
+import { galleryService } from '../../services/gallery.service';
+import { Lightbox } from '../../components/common/Lightbox';
 import { useBusiness } from '../../context/BusinessContext';
 import { updatePageSEO } from '../../utils/seo';
 import { generateWhatsAppUrl, generateGeneralInquiryMessage } from '../../utils/whatsapp';
@@ -33,7 +35,12 @@ export function HomePage() {
   const { settings } = useBusiness();
   const [featuredServices, setFeaturedServices] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
+  const [galleryItems, setGalleryItems] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Lightbox state for gallery previews
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     updatePageSEO({
@@ -45,9 +52,10 @@ export function HomePage() {
 
     async function loadHomeContent() {
       try {
-        const [srvRes, testRes] = await Promise.all([
+        const [srvRes, testRes, galRes] = await Promise.all([
           servicesService.getAllServices(false),
-          testimonialsService.getAllTestimonials(false)
+          testimonialsService.getAllTestimonials(false),
+          galleryService.getGallery('Todos', false)
         ]);
 
         if (srvRes.data) {
@@ -56,6 +64,9 @@ export function HomePage() {
         }
         if (testRes.data) {
           setTestimonials(testRes.data.slice(0, 3));
+        }
+        if (galRes?.data) {
+          setGalleryItems(galRes.data.filter(item => item.is_active !== false));
         }
       } catch (err) {
         console.error('Error loading home data:', err);
@@ -66,6 +77,21 @@ export function HomePage() {
 
     loadHomeContent();
   }, [settings]);
+
+  const handleOpenLightbox = (index) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleNextImage = () => {
+    if (!galleryItems.length) return;
+    setLightboxIndex((prev) => (prev + 1) % galleryItems.length);
+  };
+
+  const handlePrevImage = () => {
+    if (!galleryItems.length) return;
+    setLightboxIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
+  };
 
   const categoriesOverview = [
     {
@@ -368,31 +394,139 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img
-                  src="https://images.unsplash.com/photo-1512290900672-1f02e6b0a7ea?auto=format&fit=crop&w=600&q=80"
-                  alt="Tratamiento estético facial"
-                  className="rounded-2xl shadow-md object-cover h-48 sm:h-56 w-full"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80"
-                  alt="Masaje y bienestar"
-                  className="rounded-2xl shadow-md object-cover h-36 sm:h-40 w-full"
-                />
-              </div>
-              <div className="space-y-4 pt-6">
-                <img
-                  src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80"
-                  alt="Maquillaje profesional"
-                  className="rounded-2xl shadow-md object-cover h-36 sm:h-40 w-full"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=600&q=80"
-                  alt="Diseño de cejas"
-                  className="rounded-2xl shadow-md object-cover h-48 sm:h-56 w-full"
-                />
-              </div>
+            {/* Gallery Images Container (Only from gallery) */}
+            <div className="lg:col-span-6">
+              {galleryItems.length > 0 ? (
+                <div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Column 1 */}
+                    <div className="space-y-4">
+                      {galleryItems[0] && (
+                        <div
+                          onClick={() => handleOpenLightbox(0)}
+                          className="group relative rounded-2xl overflow-hidden shadow-md bg-[#FAF2F3] cursor-pointer h-48 sm:h-56 w-full border border-white/60 hover:shadow-xl transition-all duration-300"
+                        >
+                          <img
+                            src={galleryItems[0].image_url}
+                            alt={galleryItems[0].title || 'Trabajo realizado por By Sandrit'}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+                            <span className="text-[10px] text-[#F2D7D9] font-medium tracking-wider uppercase">
+                              {galleryItems[0].category || 'Estética'}
+                            </span>
+                            <p className="text-xs font-medium line-clamp-1">{galleryItems[0].title}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      {galleryItems[1] && (
+                        <div
+                          onClick={() => handleOpenLightbox(1)}
+                          className="group relative rounded-2xl overflow-hidden shadow-md bg-[#FAF2F3] cursor-pointer h-36 sm:h-40 w-full border border-white/60 hover:shadow-xl transition-all duration-300"
+                        >
+                          <img
+                            src={galleryItems[1].image_url}
+                            alt={galleryItems[1].title || 'Trabajo realizado por By Sandrit'}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+                            <span className="text-[10px] text-[#F2D7D9] font-medium tracking-wider uppercase">
+                              {galleryItems[1].category || 'Estética'}
+                            </span>
+                            <p className="text-xs font-medium line-clamp-1">{galleryItems[1].title}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Column 2 */}
+                    <div className="space-y-4 pt-4 sm:pt-6">
+                      {galleryItems[2] ? (
+                        <div
+                          onClick={() => handleOpenLightbox(2)}
+                          className="group relative rounded-2xl overflow-hidden shadow-md bg-[#FAF2F3] cursor-pointer h-36 sm:h-40 w-full border border-white/60 hover:shadow-xl transition-all duration-300"
+                        >
+                          <img
+                            src={galleryItems[2].image_url}
+                            alt={galleryItems[2].title || 'Trabajo realizado por By Sandrit'}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+                            <span className="text-[10px] text-[#F2D7D9] font-medium tracking-wider uppercase">
+                              {galleryItems[2].category || 'Estética'}
+                            </span>
+                            <p className="text-xs font-medium line-clamp-1">{galleryItems[2].title}</p>
+                          </div>
+                        </div>
+                      ) : null}
+
+                      {galleryItems[3] ? (
+                        <div
+                          onClick={() => handleOpenLightbox(3)}
+                          className="group relative rounded-2xl overflow-hidden shadow-md bg-[#FAF2F3] cursor-pointer h-48 sm:h-56 w-full border border-white/60 hover:shadow-xl transition-all duration-300"
+                        >
+                          <img
+                            src={galleryItems[3].image_url}
+                            alt={galleryItems[3].title || 'Trabajo realizado por By Sandrit'}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1583001809873-a128495da465?auto=format&fit=crop&w=800&q=80';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 text-white">
+                            <span className="text-[10px] text-[#F2D7D9] font-medium tracking-wider uppercase">
+                              {galleryItems[3].category || 'Estética'}
+                            </span>
+                            <p className="text-xs font-medium line-clamp-1">{galleryItems[3].title}</p>
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between px-1">
+                    <span className="text-[11px] text-[#736662]">
+                      Fotografías reales de nuestra galería
+                    </span>
+                    <Link
+                      to="/galeria"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8C3F52] hover:text-[#722F40] transition-colors"
+                    >
+                      <span>Ver toda la galería ({galleryItems.length})</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="h-64 sm:h-80 rounded-2xl border-2 border-dashed border-[#EBDCD8] flex flex-col items-center justify-center p-6 text-center bg-white/60">
+                  <Sparkles className="w-8 h-8 text-[#C59B4E] mb-2" />
+                  <h4 className="font-display font-medium text-base text-[#2C2422] mb-1">
+                    Galería en actualización
+                  </h4>
+                  <p className="text-xs text-[#736662] max-w-xs mb-4">
+                    Próximamente estaremos publicando nuevas fotografías de nuestros tratamientos.
+                  </p>
+                  <Link to="/servicios">
+                    <Button variant="outline" size="sm">
+                      Ver servicios disponibles
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -480,6 +614,16 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox for gallery images */}
+      <Lightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        items={galleryItems}
+        currentIndex={lightboxIndex}
+        onNext={handleNextImage}
+        onPrev={handlePrevImage}
+      />
     </div>
   );
 }
