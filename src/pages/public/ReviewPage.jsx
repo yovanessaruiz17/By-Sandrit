@@ -27,8 +27,9 @@ const RATING_DESCRIPTIONS = {
 };
 
 export function ReviewPage() {
-  const { settings } = useBusiness();
+  const { settings, categories: contextCategories } = useBusiness();
   const [services, setServices] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loadingServices, setLoadingServices] = useState(true);
 
   // Form State
@@ -55,12 +56,23 @@ export function ReviewPage() {
       canonicalPath: '/dejar-opinion'
     });
 
-    async function fetchServices() {
+    async function fetchData() {
       try {
-        const res = await servicesService.getAllServices(false);
-        if (res?.data && res.data.length > 0) {
-          setServices(res.data);
-          setServiceName(res.data[0].title);
+        const [servicesRes, categoriesRes] = await Promise.all([
+          servicesService.getAllServices(false),
+          servicesService.getCategories()
+        ]);
+
+        if (categoriesRes?.data && categoriesRes.data.length > 0) {
+          setCategories(categoriesRes.data);
+        } else if (contextCategories && contextCategories.length > 0) {
+          setCategories(contextCategories);
+        }
+
+        if (servicesRes?.data && servicesRes.data.length > 0) {
+          setServices(servicesRes.data);
+          // Set first service name by default or leave empty placeholder
+          setServiceName(servicesRes.data[0].name || '');
         }
       } catch (err) {
         console.warn('Error fetching services for review dropdown', err);
@@ -68,8 +80,8 @@ export function ReviewPage() {
         setLoadingServices(false);
       }
     }
-    fetchServices();
-  }, [businessName, stylistName]);
+    fetchData();
+  }, [businessName, stylistName, contextCategories]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,6 +89,14 @@ export function ReviewPage() {
 
     if (!customerName.trim()) {
       setErrorMsg('Por favor ingresa tu nombre.');
+      return;
+    }
+    if (!serviceName) {
+      setErrorMsg('Por favor selecciona el servicio o tratamiento recibido.');
+      return;
+    }
+    if (serviceName === 'otro' && !customService.trim()) {
+      setErrorMsg('Por favor escribe el nombre del tratamiento o servicio recibido.');
       return;
     }
     if (!comment.trim()) {
@@ -267,30 +287,76 @@ export function ReviewPage() {
               {/* Service Dropdown */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#5C504C] mb-1.5">
-                  Tratamiento o Servicio Recibido
+                  Tratamiento o Servicio Recibido *
                 </label>
                 <select
+                  required
                   value={serviceName}
                   onChange={(e) => setServiceName(e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-[#D4B8B1] focus:border-[#8C3F52] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#8C3F52]/20"
+                  disabled={loadingServices}
+                  className="w-full px-4 py-3 bg-white border border-[#D4B8B1] focus:border-[#8C3F52] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#8C3F52]/20 text-[#2C2422]"
                 >
-                  {services.map((s) => (
-                    <option key={s.id} value={s.title}>
-                      {s.title}
-                    </option>
-                  ))}
-                  <option value="otro">Otro tratamiento / Varios</option>
+                  {loadingServices ? (
+                    <option value="">Cargando servicios disponibles...</option>
+                  ) : (
+                    <>
+                      <option value="" disabled>
+                        -- Selecciona el servicio que recibiste --
+                      </option>
+
+                      {categories.length > 0 ? (
+                        categories.map((cat) => {
+                          const catServices = services.filter((s) => s.category_id === cat.id);
+                          if (catServices.length === 0) return null;
+                          return (
+                            <optgroup key={cat.id} label={`✨ ${cat.name}`}>
+                              {catServices.map((s) => (
+                                <option key={s.id} value={s.name}>
+                                  {s.name}
+                                </option>
+                              ))}
+                            </optgroup>
+                          );
+                        })
+                      ) : (
+                        services.map((s) => (
+                          <option key={s.id} value={s.name}>
+                            {s.name}
+                          </option>
+                        ))
+                      )}
+
+                      {/* Fallback for any service without a matching category */}
+                      {categories.length > 0 &&
+                        services.filter((s) => !categories.some((c) => c.id === s.category_id)).length > 0 && (
+                          <optgroup label="✨ Otros Tratamientos">
+                            {services
+                              .filter((s) => !categories.some((c) => c.id === s.category_id))
+                              .map((s) => (
+                                <option key={s.id} value={s.name}>
+                                  {s.name}
+                                </option>
+                              ))}
+                          </optgroup>
+                        )}
+
+                      <optgroup label="🌟 Opción Personalizada">
+                        <option value="otro">Otro tratamiento / No está en la lista</option>
+                      </optgroup>
+                    </>
+                  )}
                 </select>
               </div>
 
               {serviceName === 'otro' && (
                 <div className="animate-fade-in">
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#5C504C] mb-1.5">
-                    ¿Cuál servicio te realizaste?
+                    ¿Cuál servicio te realizaste? *
                   </label>
                   <input
                     type="text"
-                    placeholder="Ej. Depilación con cera, Limpieza facial..."
+                    required
+                    placeholder="Ej. Depilación con cera completa, Limpieza facial profunda..."
                     value={customService}
                     onChange={(e) => setCustomService(e.target.value)}
                     className="w-full px-4 py-3 bg-white border border-[#D4B8B1] focus:border-[#8C3F52] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#8C3F52]/20"
