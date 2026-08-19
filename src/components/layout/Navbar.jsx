@@ -55,7 +55,7 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link to="/" className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none">
           <img
-            src="/logo.jpg"
+            src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
             alt="Logo By Sandrit"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-2xs border border-[#EBDCD8] group-hover:scale-105 transition-transform shrink-0"
           />

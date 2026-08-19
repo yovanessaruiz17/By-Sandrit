@@ -51,7 +51,7 @@ export function AdminLoginPage() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex flex-col items-center group">
             <img
-              src="/logo.jpg"
+              src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
               alt="Logo By Sandrit"
               className="w-20 h-20 rounded-2xl object-cover p-1 bg-white shadow-lg border border-[#C59B4E]/40 mb-3 group-hover:scale-105 transition-transform"
             />

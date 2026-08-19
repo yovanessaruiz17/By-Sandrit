@@ -35,7 +35,7 @@ export function PwaInstallBanner() {
         <div className="flex items-center gap-3 min-w-0">
           <div className="w-10 h-10 rounded-xl bg-white p-0.5 shrink-0 flex items-center justify-center shadow-xs border border-[#C59B4E]/30">
             <img
-              src="/logo.jpg"
+              src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
               alt="Logo By Sandrit"
               className="w-full h-full rounded-lg object-cover"
             />

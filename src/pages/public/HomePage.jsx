@@ -215,14 +215,14 @@ export function HomePage() {
 
                   {/* Top Brand Emblem Badge */}
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-xs p-2 rounded-2xl shadow-lg border border-[#EBDCD8] z-10 hidden sm:block">
-                    <img src="/logo.jpg" alt="Logo By Sandrit" className="w-12 h-12 rounded-xl object-cover" />
+                    <img src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg" alt="Logo By Sandrit" className="w-12 h-12 rounded-xl object-cover" />
                   </div>
 
                   {/* Floating specialist card */}
                   <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-[#EBDCD8]">
                     <div className="flex items-center gap-3">
                       <img
-                        src="/logo.jpg"
+                        src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
                         alt="Logo By Sandrit"
                         className="w-11 h-11 rounded-full object-cover p-0.5 bg-white border border-[#C59B4E]/30 shrink-0 shadow-2xs"
                       />

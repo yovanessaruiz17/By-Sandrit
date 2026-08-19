@@ -192,7 +192,7 @@ export function ReviewPage() {
             {/* Header */}
             <div className="text-center mb-8">
               <img
-                src="/logo.jpg"
+                src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
                 alt="Logo By Sandrit"
                 className="w-16 h-16 rounded-full object-cover p-0.5 bg-white shadow-md border border-[#C59B4E]/40 mx-auto mb-3"
               />

@@ -37,7 +37,7 @@ export function PwaInstallModal({ isOpen, onClose }) {
         <div className="flex items-center gap-4 p-4 bg-[#FAF2F3] border border-[#F2D7D9] rounded-2xl">
           <div className="w-16 h-16 rounded-2xl bg-white p-1 shadow-md border border-[#C59B4E]/40 flex items-center justify-center shrink-0">
             <img
-              src="/logo.jpg"
+              src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
               alt="BY SANDRIT Logo"
               className="w-full h-full rounded-xl object-cover"
             />

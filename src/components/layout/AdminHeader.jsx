@@ -45,7 +45,7 @@ export function AdminHeader({ onMenuClick, title, subtitle }) {
 
         <div className="flex items-center gap-2 pl-2 border-l border-[#EFE5E2]">
           <img
-            src="/logo.jpg"
+            src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
             alt="Logo By Sandrit"
             className="w-8 h-8 rounded-full object-cover border border-[#EBDCD8] shrink-0"
           />

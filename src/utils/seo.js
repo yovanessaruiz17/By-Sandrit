@@ -122,7 +122,7 @@ function injectStructuredData({ pageTitle, pageDesc, currentUrl, image, service,
     'url': BASE_URL,
     'logo': {
       '@type': 'ImageObject',
-      'url': `${BASE_URL}/logo.jpg`,
+      'url': 'https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg',
       'caption': 'By Sandrit Logo'
     },
     'image': image || DEFAULT_IMAGE,

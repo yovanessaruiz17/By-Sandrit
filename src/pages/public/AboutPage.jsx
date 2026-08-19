@@ -65,7 +65,7 @@ export function AboutPage() {
               className="w-full h-full object-cover"
             />
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-xs p-2 rounded-2xl shadow-lg border border-[#EFE5E2] z-10">
-              <img src="/logo.jpg" alt="Logo By Sandrit" className="w-14 h-14 rounded-xl object-cover" />
+              <img src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg" alt="Logo By Sandrit" className="w-14 h-14 rounded-xl object-cover" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 text-white">

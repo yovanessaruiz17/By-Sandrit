@@ -5,6 +5,7 @@ export const demoBusinessSettings = {
   business_name: 'BY SANDRIT — Servicios Estéticos & Cosméticos',
   stylist_name: 'Sandrit Ríos Molinares',
   tagline: 'Belleza · Estética · Bienestar',
+  logo_url: 'https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg',
   hero_title: 'Realzamos tu esencia, resaltamos tu belleza.',
   hero_subtitle: 'Descubre una experiencia de belleza, estética y bienestar diseñada para consentirte y resaltar lo mejor de ti.',
   phone: '3127654780',

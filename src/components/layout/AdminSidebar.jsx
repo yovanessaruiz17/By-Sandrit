@@ -54,7 +54,7 @@ export function AdminSidebar({ isOpen, onClose }) {
         <div className="p-5 border-b border-[#3D312E] flex items-center justify-between">
           <Link to="/admin" className="flex items-center gap-3">
             <img
-              src="/logo.jpg"
+              src="https://i.postimg.cc/mkg3bwD8/logo-cuadrado.jpg"
               alt="Logo By Sandrit"
               className="w-10 h-10 rounded-full object-cover p-0.5 bg-white/10 border border-[#C59B4E]/30 shrink-0"
             />
