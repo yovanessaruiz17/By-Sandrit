@@ -44,9 +44,11 @@ export function AdminHeader({ onMenuClick, title, subtitle }) {
         </Link>
 
         <div className="flex items-center gap-2 pl-2 border-l border-[#EFE5E2]">
-          <div className="w-8 h-8 rounded-full bg-[#FAF2F3] text-[#8C3F52] border border-[#EBDCD8] flex items-center justify-center font-bold text-xs">
-            SR
-          </div>
+          <img
+            src="/logo.jpg"
+            alt="Logo By Sandrit"
+            className="w-8 h-8 rounded-full object-cover border border-[#EBDCD8] shrink-0"
+          />
           <span className="text-xs font-medium text-[#2C2422] hidden md:inline-block">
             {user?.email || 'admin@bysandrit.com'}
           </span>

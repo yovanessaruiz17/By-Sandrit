@@ -33,11 +33,11 @@ export function PwaInstallBanner() {
     <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 animate-fade-in">
       <div className="bg-[#2C2422] text-white p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-[#4A3B37] flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-10 h-10 rounded-xl bg-[#8C3F52] p-0.5 shrink-0 flex items-center justify-center shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-white p-0.5 shrink-0 flex items-center justify-center shadow-xs border border-[#C59B4E]/30">
             <img
-              src="/icons/icon.svg"
-              alt="Icon"
-              className="w-full h-full rounded-xl object-cover"
+              src="/logo.jpg"
+              alt="Logo By Sandrit"
+              className="w-full h-full rounded-lg object-cover"
             />
           </div>
           <div className="min-w-0">

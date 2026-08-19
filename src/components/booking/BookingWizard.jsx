@@ -230,8 +230,14 @@ export function BookingWizard() {
 
     return (
       <div className="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-[#E8DCD9] shadow-xl text-center animate-fade-in my-8">
-        <div className="w-16 h-16 rounded-full bg-[#FAF2F3] text-[#8C3F52] border border-[#F2D7D9] flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-9 h-9 text-[#8C3F52]" />
+        <img
+          src="/logo.jpg"
+          alt="Logo By Sandrit"
+          className="w-16 h-16 rounded-full object-cover p-0.5 bg-white shadow-md border border-[#C59B4E]/40 mx-auto mb-4"
+        />
+
+        <div className="w-12 h-12 rounded-full bg-[#FAF2F3] text-[#8C3F52] border border-[#F2D7D9] flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="w-7 h-7 text-[#8C3F52]" />
         </div>
 
         <span className="text-xs font-semibold uppercase tracking-widest text-[#C59B4E] block mb-1">

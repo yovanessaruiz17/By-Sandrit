@@ -74,17 +74,23 @@ export const galleryService = {
       imageUrl = URL.createObjectURL(imageFile);
     }
 
+    const galleryId = itemData.id || `gal-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
+
     const payload = {
-      ...itemData,
+      id: galleryId,
+      title: itemData.title?.trim() || 'Trabajo By Sandrit',
+      category: itemData.category?.trim() || 'General',
+      category_slug: itemData.category_slug || (itemData.category ? itemData.category.toLowerCase().replace(/\s+/g, '-') : 'general'),
+      description: itemData.description?.trim() || '',
       image_url: imageUrl || 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
       is_active: itemData.is_active ?? true,
-      order_index: itemData.order_index || localGallery.length + 1
+      order_index: Number(itemData.order_index) || localGallery.length + 1,
+      created_at: new Date().toISOString()
     };
 
     if (!isSupabaseConfigured || !supabase) {
-      const newItem = { id: `gal-${Date.now()}`, ...payload };
-      localGallery.unshift(newItem);
-      return { data: newItem, error: null, isDemo: true };
+      localGallery.unshift(payload);
+      return { data: payload, error: null, isDemo: true };
     }
 
     try {

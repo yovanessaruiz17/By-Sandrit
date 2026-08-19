@@ -18,16 +18,23 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-[#3D312E]">
           {/* Brand & Description */}
           <div className="space-y-4 lg:col-span-2">
-            <div>
-              <div className="flex items-center gap-1.5 mb-1">
-                <span className="font-display tracking-[0.2em] text-2xl font-bold text-white">
-                  BY SANDRIT
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C59B4E]"></span>
+            <div className="flex items-center gap-3.5">
+              <img
+                src="/logo.jpg"
+                alt="Logo By Sandrit"
+                className="w-14 h-14 rounded-full object-cover p-0.5 bg-white/10 border border-[#C59B4E]/30 shrink-0"
+              />
+              <div>
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="font-display tracking-[0.2em] text-2xl font-bold text-white">
+                    BY SANDRIT
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C59B4E]"></span>
+                </div>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#C97A8B] font-medium">
+                  Belleza · Estética · Bienestar
+                </p>
               </div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#C97A8B] font-medium">
-                Belleza · Estética · Bienestar
-              </p>
             </div>
             <p className="text-sm text-[#B8A7A2] leading-relaxed font-light max-w-sm">
               Espacio dedicado a consentirte, cuidar de tu piel y realzar tu belleza auténtica con tratamientos profesionales y trato personalizado por Sandrit Ríos Molinares.

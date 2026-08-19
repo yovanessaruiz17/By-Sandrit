@@ -35,11 +35,11 @@ export function PwaInstallModal({ isOpen, onClose }) {
       <div className="space-y-6">
         {/* App Hero / Icon Header */}
         <div className="flex items-center gap-4 p-4 bg-[#FAF2F3] border border-[#F2D7D9] rounded-2xl">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#8C3F52] to-[#5B2333] p-0.5 shadow-md flex items-center justify-center shrink-0">
+          <div className="w-16 h-16 rounded-2xl bg-white p-1 shadow-md border border-[#C59B4E]/40 flex items-center justify-center shrink-0">
             <img
-              src="/icons/icon.svg"
-              alt="BY SANDRIT App Icon"
-              className="w-full h-full rounded-2xl object-cover"
+              src="/logo.jpg"
+              alt="BY SANDRIT Logo"
+              className="w-full h-full rounded-xl object-cover"
             />
           </div>
           <div>

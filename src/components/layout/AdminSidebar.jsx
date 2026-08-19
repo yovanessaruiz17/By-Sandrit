@@ -51,14 +51,21 @@ export function AdminSidebar({ isOpen, onClose }) {
         }`}
       >
         {/* Sidebar Header */}
-        <div className="p-6 border-b border-[#3D312E] flex items-center justify-between">
-          <Link to="/admin" className="flex flex-col">
-            <span className="font-display text-lg tracking-widest text-white font-bold">
-              BY SANDRIT
-            </span>
-            <span className="text-[10px] uppercase tracking-wider text-[#C97A8B]">
-              Panel Administrativo
-            </span>
+        <div className="p-5 border-b border-[#3D312E] flex items-center justify-between">
+          <Link to="/admin" className="flex items-center gap-3">
+            <img
+              src="/logo.jpg"
+              alt="Logo By Sandrit"
+              className="w-10 h-10 rounded-full object-cover p-0.5 bg-white/10 border border-[#C59B4E]/30 shrink-0"
+            />
+            <div className="flex flex-col">
+              <span className="font-display text-base tracking-widest text-white font-bold leading-tight">
+                BY SANDRIT
+              </span>
+              <span className="text-[9.5px] uppercase tracking-wider text-[#C97A8B] font-medium">
+                Panel Administrativo
+              </span>
+            </div>
           </Link>
           <button
             onClick={onClose}

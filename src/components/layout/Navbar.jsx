@@ -53,16 +53,23 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="group flex flex-col focus:outline-none">
-          <div className="flex items-center gap-1.5">
-            <span className="font-display tracking-[0.2em] text-xl sm:text-2xl font-semibold text-[#2C2422] group-hover:text-[#8C3F52] transition-colors">
-              BY SANDRIT
+        <Link to="/" className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none">
+          <img
+            src="/logo.jpg"
+            alt="Logo By Sandrit"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-2xs border border-[#EBDCD8] group-hover:scale-105 transition-transform shrink-0"
+          />
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="font-display tracking-[0.18em] text-lg sm:text-xl font-bold text-[#2C2422] group-hover:text-[#8C3F52] transition-colors leading-tight">
+                BY SANDRIT
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C59B4E]"></span>
+            </div>
+            <span className="text-[9px] sm:text-[10.5px] uppercase tracking-[0.22em] text-[#8C3F52] font-semibold -mt-0.5">
+              Servicios Estéticos & Cosméticos
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C59B4E]"></span>
           </div>
-          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#8C3F52] font-medium -mt-0.5">
-            Servicios Estéticos & Cosméticos
-          </span>
         </Link>
 
         {/* Desktop Navigation */}

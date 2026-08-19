@@ -50,6 +50,11 @@ export function AdminLoginPage() {
         {/* Brand header */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex flex-col items-center group">
+            <img
+              src="/logo.jpg"
+              alt="Logo By Sandrit"
+              className="w-20 h-20 rounded-2xl object-cover p-1 bg-white shadow-lg border border-[#C59B4E]/40 mb-3 group-hover:scale-105 transition-transform"
+            />
             <div className="flex items-center gap-1.5 mb-1">
               <span className="font-display tracking-[0.2em] text-2xl sm:text-3xl font-bold text-white group-hover:text-[#C97A8B] transition-colors">
                 BY SANDRIT

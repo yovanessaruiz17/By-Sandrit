@@ -213,12 +213,19 @@ export function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 
-                  {/* Floating floating card */}
+                  {/* Top Brand Emblem Badge */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-xs p-2 rounded-2xl shadow-lg border border-[#EBDCD8] z-10 hidden sm:block">
+                    <img src="/logo.jpg" alt="Logo By Sandrit" className="w-12 h-12 rounded-xl object-cover" />
+                  </div>
+
+                  {/* Floating specialist card */}
                   <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-[#EBDCD8]">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#FAF2F3] text-[#8C3F52] flex items-center justify-center font-bold">
-                        SR
-                      </div>
+                      <img
+                        src="/logo.jpg"
+                        alt="Logo By Sandrit"
+                        className="w-11 h-11 rounded-full object-cover p-0.5 bg-white border border-[#C59B4E]/30 shrink-0 shadow-2xs"
+                      />
                       <div>
                         <h4 className="font-display font-medium text-sm text-[#2C2422]">
                           Sandrit Ríos Molinares

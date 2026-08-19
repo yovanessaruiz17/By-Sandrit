@@ -191,6 +191,11 @@ export function ReviewPage() {
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EFE5E2] shadow-sm">
             {/* Header */}
             <div className="text-center mb-8">
+              <img
+                src="/logo.jpg"
+                alt="Logo By Sandrit"
+                className="w-16 h-16 rounded-full object-cover p-0.5 bg-white shadow-md border border-[#C59B4E]/40 mx-auto mb-3"
+              />
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FAF2F3] text-[#8C3F52] rounded-full text-xs font-semibold tracking-wider uppercase mb-3 border border-[#F2D7D9]">
                 <Sparkles className="w-3.5 h-3.5 text-[#C59B4E]" />
                 <span>Experiencia By Sandrit</span>
